@@ -1,0 +1,273 @@
+:root {
+  color-scheme: light;
+  --ink: #20223b;
+  --muted: #676b89;
+  --paper: #fffaf2;
+  --surface: #ffffff;
+  --peach: #ffb59e;
+  --mint: #8fdcc2;
+  --butter: #ffe58a;
+  --lavender: #c8b7ff;
+  --border: #eadfce;
+  --shadow: 0 16px 40px rgb(67 49 20 / 10%);
+  font-family: Nunito, ui-rounded, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 12% 8%, rgb(255 181 158 / 35%), transparent 26rem),
+    linear-gradient(180deg, #fff7dc 0%, var(--paper) 22rem);
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+}
+
+main {
+  width: min(100% - 2rem, 960px);
+  margin: 0 auto;
+  padding: 2rem 0 4rem;
+}
+
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: min(100% - 2rem, 1120px);
+  margin: 0 auto;
+  padding: 1rem 0;
+}
+
+.brand,
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.brand,
+.site-nav a {
+  text-decoration: none;
+  font-weight: 800;
+}
+
+.brand-mark {
+  display: grid;
+  place-items: center;
+  width: 2.35rem;
+  height: 2.35rem;
+  border: 2px solid var(--ink);
+  border-radius: 0.75rem;
+  background: var(--butter);
+  box-shadow: 4px 4px 0 var(--ink);
+}
+
+.site-nav a {
+  padding: 0.65rem 0.9rem;
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  background: var(--surface);
+  box-shadow: 3px 3px 0 var(--ink);
+}
+
+.home-hero,
+.page-heading,
+.lesson-header {
+  padding: clamp(2rem, 7vw, 5rem) 0 2rem;
+}
+
+.home-hero {
+  min-height: 46vh;
+  display: grid;
+  align-items: center;
+}
+
+.home-hero-copy {
+  max-width: 46rem;
+}
+
+.eyebrow {
+  margin: 0 0 0.65rem;
+  color: #6a3de8;
+  font-size: 0.82rem;
+  font-weight: 900;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+h3,
+p {
+  overflow-wrap: break-word;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(3rem, 13vw, 7.5rem);
+  line-height: 0.9;
+}
+
+h2 {
+  margin: 0;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+}
+
+h3 {
+  margin: 0.75rem 0 0.45rem;
+  font-size: 1.35rem;
+}
+
+p {
+  line-height: 1.7;
+}
+
+.home-hero p,
+.page-heading p,
+.lede {
+  max-width: 42rem;
+  color: var(--muted);
+  font-size: 1.15rem;
+}
+
+.content-section {
+  padding: 1rem 0 3rem;
+}
+
+.section-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.section-heading a {
+  font-weight: 800;
+}
+
+.lesson-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+  gap: 1rem;
+}
+
+.lesson-card,
+.lesson-row {
+  border: 2px solid var(--ink);
+  border-radius: 0.75rem;
+  background: var(--surface);
+  box-shadow: 5px 5px 0 var(--ink);
+}
+
+.lesson-card {
+  display: block;
+  min-height: 13rem;
+  padding: 1.25rem;
+  text-decoration: none;
+}
+
+.lesson-card:nth-child(3n + 1) {
+  background: #fff4b8;
+}
+
+.lesson-card:nth-child(3n + 2) {
+  background: #dff7ec;
+}
+
+.lesson-card:nth-child(3n + 3) {
+  background: #eee7ff;
+}
+
+.level-pill,
+.tag-list a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 1.85rem;
+  padding: 0.25rem 0.65rem;
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  background: var(--peach);
+  font-size: 0.78rem;
+  font-weight: 900;
+  text-decoration: none;
+}
+
+.lesson-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.lesson-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.25rem;
+}
+
+.lesson-row h2 {
+  margin-top: 0.55rem;
+  font-size: 1.5rem;
+}
+
+.lesson-row h2 a {
+  text-decoration: none;
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tag-list a {
+  background: var(--mint);
+}
+
+.lesson-shell {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.lesson-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.lesson-body {
+  border-top: 3px solid var(--ink);
+  padding-top: 1.5rem;
+  font-size: 1.08rem;
+}
+
+.lesson-body h2 {
+  margin-top: 2rem;
+  font-size: 1.8rem;
+}
+
+@media (max-width: 640px) {
+  .site-header,
+  .lesson-row,
+  .section-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  main,
+  .site-header {
+    width: min(100% - 1.25rem, 960px);
+  }
+}

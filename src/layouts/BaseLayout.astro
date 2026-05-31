@@ -1,0 +1,40 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Japanese Grammar',
+  description = 'A personal Japanese grammar study notebook.',
+} = Astro.props;
+
+const pageTitle = title === 'Japanese Grammar' ? title : `${title} | Japanese Grammar`;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{pageTitle}</title>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="Japanese Grammar home">
+        <span class="brand-mark" aria-hidden="true">日</span>
+        <span>Japanese Grammar</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="/lessons">Lessons</a>
+      </nav>
+    </header>
+    <main>
+      <slot />
+    </main>
+  </body>
+</html>

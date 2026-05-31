@@ -1,0 +1,43 @@
+---
+import BaseLayout from './BaseLayout.astro';
+
+interface Props {
+  title: string;
+  summary: string;
+  level: string;
+  tags: string[];
+  date: Date;
+  source?: string;
+}
+
+const { title, summary, level, tags, date, source } = Astro.props;
+const formattedDate = new Intl.DateTimeFormat('en', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+}).format(date);
+---
+
+<BaseLayout title={title} description={summary}>
+  <article class="lesson-shell">
+    <header class="lesson-header">
+      <p class="eyebrow">{level} Grammar</p>
+      <h1>{title}</h1>
+      <p class="lede">{summary}</p>
+      <div class="lesson-meta">
+        <time datetime={date.toISOString()}>{formattedDate}</time>
+        {source && <span>{source}</span>}
+      </div>
+      {tags.length > 0 && (
+        <ul class="tag-list" aria-label="Lesson tags">
+          {tags.map((tag) => (
+            <li><a href={`/tags/${encodeURIComponent(tag)}`}>{tag}</a></li>
+          ))}
+        </ul>
+      )}
+    </header>
+    <div class="lesson-body">
+      <slot />
+    </div>
+  </article>
+</BaseLayout>

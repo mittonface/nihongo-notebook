@@ -1,0 +1,22 @@
+{
+  "name": "japanese-grammar",
+  "type": "module",
+  "private": true,
+  "packageManager": "pnpm@9.2.0",
+  "scripts": {
+    "dev": "ASTRO_TELEMETRY_DISABLED=1 astro dev",
+    "build": "ASTRO_TELEMETRY_DISABLED=1 astro check && ASTRO_TELEMETRY_DISABLED=1 astro build",
+    "preview": "ASTRO_TELEMETRY_DISABLED=1 astro preview",
+    "astro": "ASTRO_TELEMETRY_DISABLED=1 astro"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "latest",
+    "@astrojs/svelte": "latest",
+    "astro": "latest",
+    "svelte": "latest"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.9",
+    "typescript": "latest"
+  }
+}

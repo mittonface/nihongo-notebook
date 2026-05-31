@@ -1,0 +1,36 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+
+const lessons = (await getCollection('lessons', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+
+<BaseLayout title="Lessons" description="All Japanese grammar lessons.">
+  <section class="page-heading">
+    <p class="eyebrow">Library</p>
+    <h1>Lessons</h1>
+    <p>Grammar notes organized as content files, ready for MDX components.</p>
+  </section>
+
+  <section class="content-section">
+    <div class="lesson-list">
+      {lessons.map((lesson) => (
+        <article class="lesson-row">
+          <div>
+            <span class="level-pill">{lesson.data.level}</span>
+            <h2><a href={`/lessons/${lesson.id}`}>{lesson.data.title}</a></h2>
+            <p>{lesson.data.summary}</p>
+          </div>
+          {lesson.data.tags.length > 0 && (
+            <ul class="tag-list" aria-label={`${lesson.data.title} tags`}>
+              {lesson.data.tags.map((tag) => (
+                <li><a href={`/tags/${encodeURIComponent(tag)}`}>{tag}</a></li>
+              ))}
+            </ul>
+          )}
+        </article>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,37 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+
+const lessons = (await getCollection('lessons', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 5);
+---
+
+<BaseLayout>
+  <section class="home-hero">
+    <div class="home-hero-copy">
+      <p class="eyebrow">Study Notebook</p>
+      <h1>Japanese Grammar</h1>
+      <p>
+        A small, colorful place to collect grammar notes, example sentences,
+        and interactive practice as the lessons grow.
+      </p>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="section-heading">
+      <h2>Recent Lessons</h2>
+      <a href="/lessons">View all</a>
+    </div>
+    <div class="lesson-grid">
+      {lessons.map((lesson) => (
+        <a class="lesson-card" href={`/lessons/${lesson.id}`}>
+          <span class="level-pill">{lesson.data.level}</span>
+          <h3>{lesson.data.title}</h3>
+          <p>{lesson.data.summary}</p>
+        </a>
+      ))}
+    </div>
+  </section>
+</BaseLayout>
